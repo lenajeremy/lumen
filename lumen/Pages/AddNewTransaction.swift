@@ -13,6 +13,8 @@ struct AddNewTransaction: View {
     @State private var category: TransactionCategory? = nil
     @State private var description: String = ""
     
+    @State private var isNavigating = false
+    
     @Environment(\.modelContext) private var modelCtx
     
     var body: some View {
@@ -41,12 +43,16 @@ struct AddNewTransaction: View {
                 let newTransaction = TransactionEntry(amount: amount, category: category ?? TransactionCategory.defaultCategory, nameOfExpense: expenseName, description: description)
                 
                 modelCtx.insert(newTransaction)
+                
+                isNavigating = true
             } label: {
                 Text("Add Transaction")
             }
-            
-
         }.navigationTitle("Add Transaction")
+            
+//        navigationDestination(isPresented: $isNavigating, destination: {
+//            Home()
+//        })
     }
 }
 

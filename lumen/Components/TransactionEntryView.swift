@@ -10,18 +10,19 @@ import SwiftUI
 struct TransactionEntryView: View {
     var transaction: TransactionEntry
     
+    var colors: [Color] = [.blue, .blue, .purple, .orange, .blue, .pink, .accentColor, .brown, .indigo, .mint, .teal]
+    
     var body: some View {
         HStack(alignment: .center) {
             RoundedRectangle(cornerRadius: 10)
                 .frame(width: 40, height: 40)
-                .foregroundStyle(.blue)
+                .foregroundStyle(colors.randomElement()!)
                 .overlay {
                     Image(systemName: transaction.category.icon)
                         .resizable()
                         .scaledToFit()
                         .foregroundStyle(.white)
                         .frame(width: 20, height: 20)
-                        
                 }
             VStack(alignment: .leading, spacing: 0){
                 Text(transaction.nameOfExpense)
