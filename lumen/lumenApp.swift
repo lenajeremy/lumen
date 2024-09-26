@@ -12,7 +12,8 @@ import SwiftData
 struct lumenApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            TransactionEntry.self,
+            TransactionCategory.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
