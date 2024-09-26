@@ -13,21 +13,20 @@ struct ContentView: View {
     @Query private var transactions: [TransactionEntry]
 
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(transactions) { transaction in
-                    NavigationLink {
-                        Text("Transaction: \(transaction.nameOfExpense) at \(transaction.dateCreated, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        HStack {
-                            Text(transaction.nameOfExpense)
-                            Text(transaction.dateCreated, format: Date.FormatStyle(date: .numeric, time: .standard))
-                        }
-                    }
+        NavigationView {
+            TabView {
+                Tab("Transactions", systemImage: "creditcard.and.123") {
+                    Home()
+                }
+
+                Tab("Add Entry", systemImage: "plus.rectangle.portrait.fill") {
+                    AddNewTransaction()
+                }
+
+                Tab("Settings", systemImage: "gear") {
+                    Settings()
                 }
             }
-        } detail: {
-            Text("Select an item")
         }
     }
 }

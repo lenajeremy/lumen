@@ -30,4 +30,8 @@ struct lumenApp: App {
         }
         .modelContainer(sharedModelContainer)
     }
+    
+    func setupDefaultCategories() {
+        
+    }
 }

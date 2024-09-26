@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -47,6 +47,31 @@
 		98A398222CA5BAAB00CE7DBC /* lumenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lumenUITests.swift; sourceTree = "<group>"; };
 		98A398242CA5BAAB00CE7DBC /* lumenUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lumenUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		98A398352CA5C64700CE7DBC /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				AddNewTransaction.swift,
+				EditTransactionEntry.swift,
+				Home.swift,
+				Settings.swift,
+			);
+			target = 98A398012CA5BAA800CE7DBC /* lumen */;
+		};
+		98A398392CA5C9D200CE7DBC /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				TransactionEntryView.swift,
+			);
+			target = 98A398012CA5BAA800CE7DBC /* lumen */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		98A398312CA5C63100CE7DBC /* Pages */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (98A398352CA5C64700CE7DBC /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Pages; sourceTree = "<group>"; };
+		98A398362CA5C9B800CE7DBC /* Components */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (98A398392CA5C9D200CE7DBC /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Components; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		98A397FF2CA5BAA800CE7DBC /* Frameworks */ = {
@@ -96,6 +121,8 @@
 		98A398042CA5BAA800CE7DBC /* lumen */ = {
 			isa = PBXGroup;
 			children = (
+				98A398362CA5C9B800CE7DBC /* Components */,
+				98A398312CA5C63100CE7DBC /* Pages */,
 				98A398052CA5BAA800CE7DBC /* lumenApp.swift */,
 				98A398072CA5BAA800CE7DBC /* ContentView.swift */,
 				98A398092CA5BAA800CE7DBC /* Item.swift */,
