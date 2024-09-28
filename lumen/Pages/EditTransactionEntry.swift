@@ -10,12 +10,10 @@ import SwiftUI
 struct EditTransactionEntry: View {
 
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.dismiss) private var dismiss
     @Bindable var transaction: TransactionEntry
     
-    @State private var isNavigating = false
-    
     var body: some View {
-        NavigationView {
             List {
                 TextField("Name of expense", text: $transaction.nameOfExpense)
                 TextField("Amount spent", text: Binding(
@@ -39,14 +37,12 @@ struct EditTransactionEntry: View {
                 
                 Button {
                     try? modelContext.save()
-                    
-                    isNavigating = true
+                    dismiss()
                 } label: {
                     Text("Save Transaction")
                 }
             }
             .navigationTitle("Edit Transaction")
-        }
     }
 }
 

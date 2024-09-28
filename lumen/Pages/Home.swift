@@ -19,7 +19,7 @@ struct Home: View {
     }
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List{
                 ForEach(sectionedTransactions.keys.sorted(), id: \.self) { date in
                     Section(header: Text(date), footer: TransactionTotalView(transactions: sectionedTransactions[date]!)) {

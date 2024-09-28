@@ -8,26 +8,32 @@
 import SwiftUI
 import SwiftData
 
+enum TabType: String {
+    case home, add, settings
+}
+
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var transactions: [TransactionEntry]
+    @State var selectedTab: TabType = .settings
 
     var body: some View {
-        NavigationView {
-            TabView {
-                Tab("Transactions", systemImage: "creditcard.and.123") {
-                    Home()
-                }
-
-                Tab("Add Entry", systemImage: "plus.rectangle.portrait.fill") {
-                    AddNewTransaction()
-                }
-
-                Tab("Settings", systemImage: "gear") {
-                    Settings()
+        TabView(selection: $selectedTab) {
+            Tab("Home", systemImage: "creditcard.and.123", value: .home) {
+                Home()
+            }
+            
+            Tab("Add Entry", systemImage: "plus.rectangle.portrait.fill", value: .add) {
+                AddNewTransaction {
+                    selectedTab = .home
                 }
             }
+            
+            Tab("Settings", systemImage: "gear", value: .settings) {
+                Settings()
+            }
         }
+        .tint(.green)
     }
 }
 

@@ -13,12 +13,12 @@ struct AddNewTransaction: View {
     @State private var category: TransactionCategory? = nil
     @State private var description: String = ""
     
-    @State private var isNavigating = false
+    var onComplete: () -> Void
     
     @Environment(\.modelContext) private var modelCtx
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             Form {
                 LabeledContent{
                     TextField("Bag of champagne", text: $expenseName)
@@ -61,11 +61,12 @@ struct AddNewTransaction: View {
                     let newTransaction = TransactionEntry(amount: amount, category: category ?? TransactionCategory.defaultCategory, nameOfExpense: expenseName, description: description)
                     
                     modelCtx.insert(newTransaction)
-                    
-                    isNavigating = true
+                    onComplete()
                 } label: {
                     Text("Add Transaction")
+                        .frame(maxWidth: .infinity)
                 }
+                .buttonStyle(.bordered)
             }.navigationTitle("Add Transaction")
         }
             
@@ -76,5 +77,7 @@ struct AddNewTransaction: View {
 }
 
 #Preview {
-    AddNewTransaction()
+    AddNewTransaction {
+        print("Should move to the next page")
+    }
 }
