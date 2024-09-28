@@ -9,14 +9,13 @@ import SwiftUI
 
 struct TransactionEntryView: View {
     var transaction: TransactionEntry
-    
-    var colors: [Color] = [.blue, .blue, .purple, .orange, .blue, .pink, .accentColor, .indigo, .mint, .teal]
+    var mode: SectionParameter
     
     var body: some View {
         HStack(alignment: .center) {
             RoundedRectangle(cornerRadius: 10)
                 .frame(width: 40, height: 40)
-                .foregroundStyle(colors.randomElement()!)
+                .foregroundStyle(Color(hex: transaction.category.colorHex) ?? .accentColor)
                 .overlay {
                     Image(systemName: transaction.category.icon)
                         .resizable()
@@ -28,18 +27,34 @@ struct TransactionEntryView: View {
                 Text(transaction.nameOfExpense)
                     .font(.system(size: 14))
                     .fontWeight(.semibold)
-                Text(transaction.category.name)
+                
+                Text(transaction.desc)
+                    .foregroundStyle(.gray)
                     .font(.subheadline)
+                    .lineLimit(1)
             }
-            Spacer()
-            VStack(alignment: .trailing) {
-                Text(String(format: "NGN %.2f", transaction.amount))
+            Spacer(minLength: 50)
+            VStack(alignment: .trailing, spacing: 0) {
+                Text(CurrencyFormatter.format(amount: transaction.amount))
                     .font(.system(size: 14))
                     .fontWeight(.semibold)
-                    .foregroundStyle(.pink)
-                Text(transaction.dateCreated.formatted(date:.abbreviated, time: .omitted))
-                    .font(.subheadline)
-                    .opacity(0.8)
+                    .foregroundStyle(mode == .category ? Color(hex: transaction.category.colorHex) ?? .pink : .pink)
+                
+                    if mode == .category {
+                        HStack(spacing: 4) {
+                            Circle()
+                                .frame(width: 8, height: 8)
+                                .foregroundStyle(Color(hex: transaction.category.colorHex) ?? .gray)
+                            
+                            Text(transaction.category.name)
+                                .foregroundStyle(Color(hex: transaction.category.colorHex) ?? .gray)
+                                .font(.subheadline)
+                        }
+                    } else {
+                        Text(transaction.dateCreated.formatted(date:.abbreviated, time: .omitted))
+                            .foregroundStyle(.gray)
+                            .font(.subheadline)
+                    }
             }
         }
         
@@ -47,5 +62,5 @@ struct TransactionEntryView: View {
 }
 
 #Preview {
-    TransactionEntryView(transaction: TransactionEntry.defaultTransaction)
+    TransactionEntryView(transaction: TransactionEntry.defaultTransaction, mode: .category)
 }

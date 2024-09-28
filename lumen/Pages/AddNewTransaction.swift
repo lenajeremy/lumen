@@ -69,10 +69,6 @@ struct AddNewTransaction: View {
                 .buttonStyle(.bordered)
             }.navigationTitle("Add Transaction")
         }
-            
-//        navigationDestination(isPresented: $isNavigating, destination: {
-//            Home()
-//        })
     }
 }
 

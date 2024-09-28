@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		98A398062CA5BAA800CE7DBC /* lumenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A398052CA5BAA800CE7DBC /* lumenApp.swift */; };
-		98A398082CA5BAA800CE7DBC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A398072CA5BAA800CE7DBC /* ContentView.swift */; };
-		98A3980A2CA5BAA800CE7DBC /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A398092CA5BAA800CE7DBC /* Item.swift */; };
-		98A3980C2CA5BAAA00CE7DBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98A3980B2CA5BAAA00CE7DBC /* Assets.xcassets */; };
-		98A3980F2CA5BAAA00CE7DBC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98A3980E2CA5BAAA00CE7DBC /* Preview Assets.xcassets */; };
 		98A398192CA5BAAB00CE7DBC /* lumenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A398182CA5BAAB00CE7DBC /* lumenTests.swift */; };
 		98A398232CA5BAAB00CE7DBC /* lumenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A398222CA5BAAB00CE7DBC /* lumenUITests.swift */; };
 		98A398252CA5BAAB00CE7DBC /* lumenUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A398242CA5BAAB00CE7DBC /* lumenUITestsLaunchTests.swift */; };
@@ -36,11 +31,6 @@
 
 /* Begin PBXFileReference section */
 		98A398022CA5BAA800CE7DBC /* lumen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lumen.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		98A398052CA5BAA800CE7DBC /* lumenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lumenApp.swift; sourceTree = "<group>"; };
-		98A398072CA5BAA800CE7DBC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		98A398092CA5BAA800CE7DBC /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		98A3980B2CA5BAAA00CE7DBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		98A3980E2CA5BAAA00CE7DBC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		98A398142CA5BAAB00CE7DBC /* lumenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = lumenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		98A398182CA5BAAB00CE7DBC /* lumenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lumenTests.swift; sourceTree = "<group>"; };
 		98A3981E2CA5BAAB00CE7DBC /* lumenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = lumenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,28 +39,27 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		98A398352CA5C64700CE7DBC /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+		9838A0B02CA810FF003BA11C /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				AddNewTransaction.swift,
-				EditTransactionEntry.swift,
-				Home.swift,
-				Settings.swift,
-			);
-			target = 98A398012CA5BAA800CE7DBC /* lumen */;
-		};
-		98A398392CA5C9D200CE7DBC /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				TransactionEntryView.swift,
+				Assets.xcassets,
+				Components/TransactionEntryView.swift,
+				ContentView.swift,
+				Item.swift,
+				lumenApp.swift,
+				Pages/AddNewTransaction.swift,
+				Pages/EditTransactionEntry.swift,
+				Pages/Home.swift,
+				Pages/Settings.swift,
+				"Preview Content/Preview Assets.xcassets",
+				Utils.swift,
 			);
 			target = 98A398012CA5BAA800CE7DBC /* lumen */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		98A398312CA5C63100CE7DBC /* Pages */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (98A398352CA5C64700CE7DBC /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Pages; sourceTree = "<group>"; };
-		98A398362CA5C9B800CE7DBC /* Components */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (98A398392CA5C9D200CE7DBC /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Components; sourceTree = "<group>"; };
+		9838A0A52CA810FF003BA11C /* lumen */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (9838A0B02CA810FF003BA11C /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = lumen; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +90,7 @@
 		98A397F92CA5BAA800CE7DBC = {
 			isa = PBXGroup;
 			children = (
-				98A398042CA5BAA800CE7DBC /* lumen */,
+				9838A0A52CA810FF003BA11C /* lumen */,
 				98A398172CA5BAAB00CE7DBC /* lumenTests */,
 				98A398212CA5BAAB00CE7DBC /* lumenUITests */,
 				98A398032CA5BAA800CE7DBC /* Products */,
@@ -116,28 +105,6 @@
 				98A3981E2CA5BAAB00CE7DBC /* lumenUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		98A398042CA5BAA800CE7DBC /* lumen */ = {
-			isa = PBXGroup;
-			children = (
-				98A398362CA5C9B800CE7DBC /* Components */,
-				98A398312CA5C63100CE7DBC /* Pages */,
-				98A398052CA5BAA800CE7DBC /* lumenApp.swift */,
-				98A398072CA5BAA800CE7DBC /* ContentView.swift */,
-				98A398092CA5BAA800CE7DBC /* Item.swift */,
-				98A3980B2CA5BAAA00CE7DBC /* Assets.xcassets */,
-				98A3980D2CA5BAAA00CE7DBC /* Preview Content */,
-			);
-			path = lumen;
-			sourceTree = "<group>";
-		};
-		98A3980D2CA5BAAA00CE7DBC /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				98A3980E2CA5BAAA00CE7DBC /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		98A398172CA5BAAB00CE7DBC /* lumenTests */ = {
@@ -261,8 +228,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98A3980F2CA5BAAA00CE7DBC /* Preview Assets.xcassets in Resources */,
-				98A3980C2CA5BAAA00CE7DBC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,9 +252,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98A398082CA5BAA800CE7DBC /* ContentView.swift in Sources */,
-				98A3980A2CA5BAA800CE7DBC /* Item.swift in Sources */,
-				98A398062CA5BAA800CE7DBC /* lumenApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

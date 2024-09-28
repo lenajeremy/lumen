@@ -38,6 +38,26 @@ struct ContentView: View {
 }
 
 #Preview {
+    let container = setupPreviewContainer()
     ContentView()
-        .modelContainer(for: [TransactionEntry.self, TransactionCategory.self], inMemory: true)
+        .modelContainer(container)
+}
+
+@MainActor
+func setupPreviewContainer() -> ModelContainer {
+    let schema = Schema([TransactionEntry.self, TransactionCategory.self])
+    let configuration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
+    let container = try! ModelContainer(for: schema, configurations: [configuration])
+    
+    // Insert default categories
+    for category in TransactionCategory.defaultCategories {
+        container.mainContext.insert(category)
+    }
+    
+    // Insert default transactions
+    for entry in TransactionEntry.defaultTransactions {
+        container.mainContext.insert(entry)
+    }
+    
+    return container
 }
