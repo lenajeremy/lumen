@@ -10,7 +10,7 @@ import SwiftUI
 struct TransactionEntryView: View {
     var transaction: TransactionEntry
     
-    var colors: [Color] = [.blue, .blue, .purple, .orange, .blue, .pink, .accentColor, .brown, .indigo, .mint, .teal]
+    var colors: [Color] = [.blue, .blue, .purple, .orange, .blue, .pink, .accentColor, .indigo, .mint, .teal]
     
     var body: some View {
         HStack(alignment: .center) {
@@ -24,7 +24,7 @@ struct TransactionEntryView: View {
                         .foregroundStyle(.white)
                         .frame(width: 20, height: 20)
                 }
-            VStack(alignment: .leading, spacing: 0){
+            VStack(alignment: .leading){
                 Text(transaction.nameOfExpense)
                     .font(.system(size: 14))
                     .fontWeight(.semibold)
@@ -33,9 +33,10 @@ struct TransactionEntryView: View {
             }
             Spacer()
             VStack(alignment: .trailing) {
-                Text("-$\(transaction.amount.formatted())")
+                Text(String(format: "NGN %.2f", transaction.amount))
                     .font(.system(size: 14))
                     .fontWeight(.semibold)
+                    .foregroundStyle(.pink)
                 Text(transaction.dateCreated.formatted(date:.abbreviated, time: .omitted))
                     .font(.subheadline)
                     .opacity(0.8)

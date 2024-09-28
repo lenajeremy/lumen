@@ -18,37 +18,56 @@ struct AddNewTransaction: View {
     @Environment(\.modelContext) private var modelCtx
     
     var body: some View {
-        List {
-            TextField("Name of expense", text: $expenseName)
-            TextField("Amount spent", text: Binding(
-                    get: {
-                        String(format: "%.2f", amount)
-                    },
-                    set: { newValue in
-                        if let floatValue = Double(newValue) {
-                            amount = floatValue
-                        }
+        NavigationView {
+            Form {
+                LabeledContent{
+                    TextField("Bag of champagne", text: $expenseName)
+                } label: {
+                    Label {
+                        Text("Expense: ")
+                    } icon: {
+                        Image(systemName: "gear")
                     }
-                ))
-                .keyboardType(.decimalPad)            
-            Picker("Category", selection: $category) {
-                ForEach(TransactionCategory.defaultCategories) { category in
-                    Text(category.name).tag(category)
+                }.labelStyle(.titleOnly)
+                
+                LabeledContent("Amount:") {
+                    TextField("$5", text: Binding(
+                        get: {
+                            if amount == 0 {
+                                return ""
+                            } else {
+                                return String(format: "%.2f", amount)
+                            }
+                        },
+                        set: { newValue in
+                            if let floatValue = Double(newValue) {
+                                amount = floatValue
+                            }
+                        }
+                    ))
+                    .keyboardType(.decimalPad)
                 }
-            }
-            TextField("Description", text: $description,  axis: .vertical)
-                .lineLimit(5...10)
-            
-            Button {
-                let newTransaction = TransactionEntry(amount: amount, category: category ?? TransactionCategory.defaultCategory, nameOfExpense: expenseName, description: description)
                 
-                modelCtx.insert(newTransaction)
+                Picker("Category", selection: $category) {
+                    ForEach(TransactionCategory.defaultCategories) { category in
+                        Text(category.name).tag(category)
+                    }
+                }
+                TextField("Description", text: $description,  axis: .vertical)
+                    .lineLimit(5...10)
                 
-                isNavigating = true
-            } label: {
-                Text("Add Transaction")
-            }
-        }.navigationTitle("Add Transaction")
+                
+                Button {
+                    let newTransaction = TransactionEntry(amount: amount, category: category ?? TransactionCategory.defaultCategory, nameOfExpense: expenseName, description: description)
+                    
+                    modelCtx.insert(newTransaction)
+                    
+                    isNavigating = true
+                } label: {
+                    Text("Add Transaction")
+                }
+            }.navigationTitle("Add Transaction")
+        }
             
 //        navigationDestination(isPresented: $isNavigating, destination: {
 //            Home()
