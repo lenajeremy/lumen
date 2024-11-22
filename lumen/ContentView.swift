@@ -15,7 +15,7 @@ enum TabType: String {
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var transactions: [TransactionEntry]
-    @State var selectedTab: TabType = .settings
+    @State var selectedTab: TabType = .home
 
     var body: some View {
         TabView(selection: $selectedTab) {

@@ -38,9 +38,9 @@ struct TransactionEntryView: View {
                 Text(CurrencyFormatter.format(amount: transaction.amount))
                     .font(.system(size: 14))
                     .fontWeight(.semibold)
-                    .foregroundStyle(mode == .category ? Color(hex: transaction.category.colorHex) ?? .pink : .pink)
+                    .foregroundStyle(mode == .dateCreated ? Color(hex: transaction.category.colorHex) ?? .pink : .pink)
                 
-                    if mode == .category {
+                if mode == .dateCreated {
                         HStack(spacing: 4) {
                             Circle()
                                 .frame(width: 8, height: 8)
@@ -62,5 +62,5 @@ struct TransactionEntryView: View {
 }
 
 #Preview {
-    TransactionEntryView(transaction: TransactionEntry.defaultTransaction, mode: .category)
+    TransactionEntryView(transaction: TransactionEntry.defaultTransaction, mode: .dateCreated)
 }

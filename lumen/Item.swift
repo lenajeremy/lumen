@@ -19,9 +19,9 @@ final class TransactionEntry: Identifiable {
     var nameOfExpense: String
     var desc: String
 
-    init(amount: Double, category: TransactionCategory, nameOfExpense: String, description: String = "") {
+    init(amount: Double, category: TransactionCategory, nameOfExpense: String, description: String = "", dateCreated: Date = Date()) {
         self.id = UUID()
-        self.dateCreated = Date()
+        self.dateCreated = dateCreated
         self.amount = amount
         self.category = category
         self.nameOfExpense = nameOfExpense

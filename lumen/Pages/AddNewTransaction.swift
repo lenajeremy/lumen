@@ -12,6 +12,7 @@ struct AddNewTransaction: View {
     @State private var expenseName: String = ""
     @State private var category: TransactionCategory? = nil
     @State private var description: String = ""
+    @State private var dateCreated = Date()
     
     var onComplete: () -> Void
     
@@ -53,12 +54,15 @@ struct AddNewTransaction: View {
                         Text(category.name).tag(category)
                     }
                 }
+                
+                DatePicker("Date", selection: $dateCreated, displayedComponents: .date)
+
                 TextField("Description", text: $description,  axis: .vertical)
                     .lineLimit(5...10)
                 
                 
                 Button {
-                    let newTransaction = TransactionEntry(amount: amount, category: category ?? TransactionCategory.defaultCategory, nameOfExpense: expenseName, description: description)
+                    let newTransaction = TransactionEntry(amount: amount, category: category ?? TransactionCategory.defaultCategory, nameOfExpense: expenseName, description: description, dateCreated: dateCreated)
                     
                     modelCtx.insert(newTransaction)
                     onComplete()
